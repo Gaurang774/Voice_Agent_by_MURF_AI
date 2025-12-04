@@ -183,6 +183,9 @@ voice_agent/
 
 [Link to LinkedIn post will be added here]
 
+##Youtube Video
+https://youtu.be/UeBasaGSy3Q?si=taVzxLlGZMJl5f6A
+
 ## Built With Murf Falcon
 
 This project is built using *Murf Falcon – the consistently fastest TTS API*.
