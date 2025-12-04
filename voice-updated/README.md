@@ -8,29 +8,29 @@ This voice agent allows users to have natural conversations through speech. User
 
 ## Features
 
-- **Real-time Speech Recognition**: Uses browser-based Web Speech API for instant voice input
-- **Murf Falcon TTS Integration**: Generates natural, production-grade speech responses
-- **Multiple Voice Options**: 8 verified working voices across US and UK accents
+- *Real-time Speech Recognition*: Uses browser-based Web Speech API for instant voice input
+- *Murf Falcon TTS Integration*: Generates natural, production-grade speech responses
+- *Multiple Voice Options*: 8 verified working voices across US and UK accents
   - Wayne, Cooper, Terrell, Hugo (Male)
   - Natalie, Samantha, Claire, Ruby (Female)
-- **AI-Powered Responses**: Uses Groq (free) or OpenAI for intelligent conversation
-- **Customizable Speech Settings**:
+- *AI-Powered Responses*: Uses Groq (free) or OpenAI for intelligent conversation
+- *Customizable Speech Settings*:
   - Voice selection (male/female, different accents)
   - Speaking styles (Conversational, Professional, Friendly, etc.)
   - Speech rate control (-50 to +50)
   - Pitch adjustment (-50 to +50)
-- **Modern UI**: Built with React and Tailwind CSS with smooth scrolling
-- **Secure API Management**: Environment variables for API key security
-- **Fixed Issues**: All voice synthesis errors resolved, proper error handling implemented
+- *Modern UI*: Built with React and Tailwind CSS with smooth scrolling
+- *Secure API Management*: Environment variables for API key security
+- *Fixed Issues*: All voice synthesis errors resolved, proper error handling implemented
 
 ## Tech Stack
 
-**Frontend:**
+*Frontend:*
 - React 18
 - Tailwind CSS
 - Web Speech API (for ASR)
 
-**Backend:**
+*Backend:*
 - Python 3.x
 - Flask (REST API)
 - Murf Falcon API (TTS)
@@ -38,7 +38,7 @@ This voice agent allows users to have natural conversations through speech. User
 - LangChain (LLM integration)
 - python-dotenv (environment management)
 - Flask-CORS (cross-origin support)
-
+- Murf Falcon TTS API Integration 
 ## Setup Instructions
 
 ### Prerequisites
@@ -51,14 +51,16 @@ This voice agent allows users to have natural conversations through speech. User
 
 ### Installation
 
-1. **Clone the repository**
-```bash
-git clone https://github.com/2005MohitInamdar/AI_Voice_Agent
-cd AI_Voice_Agent
-```
+1. *Clone the repository*
+bash
+git clone https://github.com/Gaurang774/Voice_Agent_by_MURF_AI
+cd voice_assistant_project
 
-2. **Set up Python virtual environment**
-```bash
+
+2. *Set up Python virtual environment*
+
+bash
+cd backend
 python -m venv venv
 
 # On Windows:
@@ -66,54 +68,56 @@ venv\Scripts\activate
 
 # On Mac/Linux:
 source venv/bin/activate
-```
 
-3. **Install Python dependencies**
-```bash
-cd backend
+
+3. *Install Python dependencies*
+bash
 pip install -r requirements.txt
-```
 
-4. **Configure environment variables**
 
-Create a `.env` file in the `backend` folder:
-```
-MURF_API_KEY=your_murf_api_key_here
-GROQ_API_KEY=your_groq_api_key_here
-```
+4. *Configure environment variables*
 
-**Get your API keys:**
+Create a .env file in the backend folder:
+
+MURF_API_KEY=
+# GROQ_API_KEY=
+HF_TOKEN=
+GROQ_API_KEY=
+
+
+*Get your API keys:*
 - Murf API key: https://murf.ai/
 - Groq API key (FREE): https://console.groq.com
+- HF_TOKEN (Huggingface token) (FREE): https://huggingface.co/settings/tokens 
+*Note:* Groq is recommended as it's free and fast. Alternatively, you can use OpenAI by setting OPENAI_API_KEY instead.
 
-**Note:** Groq is recommended as it's free and fast. Alternatively, you can use OpenAI by setting `OPENAI_API_KEY` instead.
-
-5. **Start the backend server**
-```bash
-cd backend
+5. *Start the backend server*
+bash
 python app.py
-```
 
-The backend will run on `http://localhost:8000`
 
-6. **Install frontend dependencies**
+The backend will run on http://localhost:8000
+
+6. *Install frontend dependencies*
 
 In a new terminal:
-```bash
+bash
 cd frontend
 npm install
-```
+npm install bootstrap
+npm install tailwindcss @tailwindcss/vite
 
-7. **Start the frontend server**
-```bash
+
+7. *Start the frontend server*
+bash
 npm run dev
-```
 
-The frontend will be available at `http://localhost:5173/`
 
-8. **Open in browser**
+The frontend will be available at http://localhost:5173/
 
-Navigate to `http://localhost:5173` in Chrome or another modern browser.
+8. *Open in browser*
+
+Navigate to http://localhost:5173 in Chrome or another modern browser.
 
 ## Usage
 
@@ -129,15 +133,15 @@ Navigate to `http://localhost:5173` in Chrome or another modern browser.
 
 This project uses the Murf Falcon API for text-to-speech generation. Key features:
 
-- **Endpoint**: `https://api.murf.ai/v1/speech/generate`
-- **Authentication**: API key via header
-- **Response Time**: Real-time generation (typically < 2 seconds)
-- **Quality**: Production-grade, natural-sounding speech
-- **Free Tier**: 1,000,000 characters for new accounts
+- *Endpoint*: https://api.murf.ai/v1/speech/generate
+- *Authentication*: API key via header
+- *Response Time*: Real-time generation (typically < 2 seconds)
+- *Quality*: Production-grade, natural-sounding speech
+- *Free Tier*: 1,000,000 characters for new accounts
 
 ### API Request Structure
 
-```python
+python
 payload = {
     "voiceId": "en-US-ken",
     "style": "Conversational",
@@ -148,11 +152,11 @@ payload = {
     "format": "MP3",
     "channelType": "STEREO"
 }
-```
+
 
 ## Project Structure
 
-```
+
 voice_agent/
 ├── backend/
 │   ├── app.py              # Flask API server
@@ -165,18 +169,15 @@ voice_agent/
 │   ├── index.html         # Main HTML
 │   └── app.jsx            # React application
 └── README.md              # This file
-```
+
 
 ## Security
 
-- API keys are stored in `.env` file (not committed to repository)
-- Environment variables loaded using `python-dotenv`
+- API keys are stored in .env file (not committed to repository)
+- Environment variables loaded using python-dotenv
 - CORS configured for local development only
 - No sensitive data exposed to frontend
 
-## Demo Video
-
-[Link to demo video will be added here]
 
 ## LinkedIn Post
 
@@ -184,7 +185,7 @@ voice_agent/
 
 ## Built With Murf Falcon
 
-This project is built using **Murf Falcon – the consistently fastest TTS API**.
+This project is built using *Murf Falcon – the consistently fastest TTS API*.
 
 Falcon delivers:
 - Real-time speech generation
@@ -203,9 +204,8 @@ Falcon delivers:
 
 ## Team
 
-Gaurang Udgirkar
-
-Mohit Inamdar
+- Gaurang Udgirkar
+- Mohit Inamdar
 
 ## Acknowledgments
 
@@ -219,11 +219,4 @@ MIT License
 
 ## Tags
 
-`murf-ai` `voice-agent` `tts` `speech-synthesis` `hackathon` `techfest-2025`
-
-
-
-
-
-
-
+murf-ai voice-agent tts speech-synthesis hackathon techfest-2025
